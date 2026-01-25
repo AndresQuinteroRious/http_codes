@@ -1,0 +1,17 @@
+
+###
+
+Get Http://localhost:8080/api/global
+
+
+
+###
+POST http://localhost:8080/api/global
+
+Content-Type: application/json
+
+{
+  "name":  "Andres Quintero",
+  "email": "andresquintero@hotmail.com"
+}
+
