@@ -1,0 +1,17 @@
+###
+
+GET Http://localhost:8080/api/users
+
+###
+
+POST HTTP://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "user_name": "andresquintero2",
+    "password": "quintero123",
+    "email": "Quintero2273@hotmail.com",
+    "nombre": "Andres Quintero",
+    "hireDate": "15-03-2022",
+    "active": false
+}

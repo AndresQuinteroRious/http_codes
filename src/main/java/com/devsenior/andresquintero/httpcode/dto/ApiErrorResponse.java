@@ -4,22 +4,26 @@ import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
 
-public class ApiErrorResponse {
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class ApiErrorResponse<T> {
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime timestamp;
     private int status;
     private String error;
-    private String message;
+    private T message;
     private String path;
 
     
 
-    public ApiErrorResponse(LocalDateTime timestamp,HttpStatus  status,  String message, String path) {
+    public ApiErrorResponse(LocalDateTime timestamp,HttpStatus  status,  T message, String path) {
        this(timestamp, status.value(), status.getReasonPhrase(), message, path);
     }
 
 
 
-    public ApiErrorResponse(LocalDateTime timestamp, int status, String error, String message, String path) {
+    public ApiErrorResponse(LocalDateTime timestamp, int status, String error, T message, String path) {
         this.timestamp = timestamp;
         this.status = status;
         this.error = error;
@@ -42,7 +46,7 @@ public class ApiErrorResponse {
         return error;
     }
 
-    public String getMessage() {
+    public T getMessage() {
         return message;
     }
 
